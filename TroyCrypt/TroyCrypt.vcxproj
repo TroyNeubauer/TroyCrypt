@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{7326E93B-7D50-4DCA-A818-067D700A57DC}</ProjectGuid>
+    <RootNamespace>TroyCrypt</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IntDir>$(SolutionDir)intermediates\$(Platform)\$(Configuration)\</IntDir>
+    <SourcePath>C:\C++\Current Projects\TroyCrypt\TroyCrypt\src;$(SourcePath)</SourcePath>
+    <IncludePath>C:\C++\Current Projects\TroyCrypt\TroyCrypt\vendor\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IntDir>$(SolutionDir)intermediates\$(Platform)\$(Configuration)\</IntDir>
+    <SourcePath>C:\C++\Current Projects\TroyCrypt\TroyCrypt\src;$(SourcePath)</SourcePath>
+    <IncludePath>C:\C++\Current Projects\TroyCrypt\TroyCrypt\vendor\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>x64;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <ConformanceMode>true</ConformanceMode>
+      <PreprocessorDefinitions>x64;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EntryPointSymbol>
+      </EntryPointSymbol>
+      <SubSystem>Console</SubSystem>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="src\algorithms\A1\A1.h" />
+    <ClInclude Include="src\algorithms\A1\A1Circular32BitShift.h" />
+    <ClInclude Include="src\algorithms\A1\A1CombineKey.h" />
+    <ClInclude Include="src\algorithms\A1\A1SubBytes.h" />
+    <ClInclude Include="src\cipher\BlockCipher.h" />
+    <ClInclude Include="src\cipher\ConstantLengthBlockCipher.h" />
+    <ClInclude Include="src\cipher\DynamicBlockCipher.h" />
+    <ClInclude Include="src\cipher\TroyCipher.h" />
+    <ClInclude Include="src\stage\BlockCipherStage.h" />
+    <ClInclude Include="src\stage\BlockCipherSubBytes.h" />
+    <ClInclude Include="src\stage\CipherStage.h" />
+    <ClInclude Include="src\tao\pegtl.hpp" />
+    <ClInclude Include="src\tao\pegtl\analysis\analyze_cycles.hpp" />
+    <ClInclude Include="src\tao\pegtl\analysis\counted.hpp" />
+    <ClInclude Include="src\tao\pegtl\analysis\generic.hpp" />
+    <ClInclude Include="src\tao\pegtl\analysis\grammar_info.hpp" />
+    <ClInclude Include="src\tao\pegtl\analysis\insert_guard.hpp" />
+    <ClInclude Include="src\tao\pegtl\analysis\insert_rules.hpp" />
+    <ClInclude Include="src\tao\pegtl\analysis\rule_info.hpp" />
+    <ClInclude Include="src\tao\pegtl\analysis\rule_type.hpp" />
+    <ClInclude Include="src\tao\pegtl\analyze.hpp" />
+    <ClInclude Include="src\tao\pegtl\apply_mode.hpp" />
+    <ClInclude Include="src\tao\pegtl\argv_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\ascii.hpp" />
+    <ClInclude Include="src\tao\pegtl\buffer_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\config.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\abnf.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\alphabet.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\changes.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\counter.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\http.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\icu\internal.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\icu\utf16.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\icu\utf32.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\icu\utf8.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\if_then.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\integer.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\json.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\parse_tree.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\raw_string.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\rep_one_min_max.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\to_string.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\tracer.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\unescape.hpp" />
+    <ClInclude Include="src\tao\pegtl\contrib\uri.hpp" />
+    <ClInclude Include="src\tao\pegtl\cstream_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\eol.hpp" />
+    <ClInclude Include="src\tao\pegtl\eol_pair.hpp" />
+    <ClInclude Include="src\tao\pegtl\file_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\input_error.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\action.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\action_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\alnum.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\alpha.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\always_false.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\any.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\apply.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\apply0.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\apply0_single.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\apply_single.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\at.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\bof.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\bol.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\bump.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\bump_help.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\bytes.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\control.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\crlf_eol.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\cr_crlf_eol.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\cr_eol.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\cstream_reader.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\cstring_reader.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\demangle.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\demangle_cxxabi.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\demangle_nop.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\demangle_sanitise.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\disable.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\discard.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\duseltronik.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\dusel_mode.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\enable.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\endian.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\endian_gcc.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\endian_win.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\eof.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\eol.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\eolf.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\file_mapper_posix.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\file_mapper_win32.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\file_opener.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\file_reader.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\has_apply.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\has_apply0.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\identifier.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\if_apply.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\if_must.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\if_must_else.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\if_then_else.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\input_pair.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\istream_reader.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\istring.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\iterator.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\lf_crlf_eol.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\lf_eol.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\list.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\list_must.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\list_tail.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\list_tail_pad.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\marker.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\minus.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\must.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\not_at.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\one.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\opt.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\pad.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\pad_opt.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\peek_char.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\peek_mask_uint.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\peek_mask_uint8.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\peek_uint.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\peek_uint8.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\peek_utf16.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\peek_utf32.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\peek_utf8.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\pegtl_string.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\plus.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\raise.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\range.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\ranges.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\read_uint.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\rep.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\rep_min.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\rep_min_max.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\rep_opt.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\require.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\result_on_found.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\rules.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\seq.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\skip_control.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\sor.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\star.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\star_must.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\state.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\string.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\three.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\trivial.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\try_catch_type.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\two.hpp" />
+    <ClInclude Include="src\tao\pegtl\internal\until.hpp" />
+    <ClInclude Include="src\tao\pegtl\istream_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\memory_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\mmap_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\normal.hpp" />
+    <ClInclude Include="src\tao\pegtl\nothing.hpp" />
+    <ClInclude Include="src\tao\pegtl\parse.hpp" />
+    <ClInclude Include="src\tao\pegtl\parse_error.hpp" />
+    <ClInclude Include="src\tao\pegtl\position.hpp" />
+    <ClInclude Include="src\tao\pegtl\read_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\rewind_mode.hpp" />
+    <ClInclude Include="src\tao\pegtl\rules.hpp" />
+    <ClInclude Include="src\tao\pegtl\string_input.hpp" />
+    <ClInclude Include="src\tao\pegtl\tracking_mode.hpp" />
+    <ClInclude Include="src\tao\pegtl\uint16.hpp" />
+    <ClInclude Include="src\tao\pegtl\uint32.hpp" />
+    <ClInclude Include="src\tao\pegtl\uint64.hpp" />
+    <ClInclude Include="src\tao\pegtl\uint8.hpp" />
+    <ClInclude Include="src\tao\pegtl\utf16.hpp" />
+    <ClInclude Include="src\tao\pegtl\utf32.hpp" />
+    <ClInclude Include="src\tao\pegtl\utf8.hpp" />
+    <ClInclude Include="src\tao\pegtl\version.hpp" />
+    <ClInclude Include="src\TroyContext.h" />
+    <ClInclude Include="src\TroyCrypt.h" />
+    <ClInclude Include="src\util\HardwareRNG.h" />
+    <ClInclude Include="src\util\Utils.h" />
+    <ClInclude Include="tao\pegtl.hpp" />
+    <ClInclude Include="tao\pegtl\analyze.hpp" />
+    <ClInclude Include="tao\pegtl\apply_mode.hpp" />
+    <ClInclude Include="tao\pegtl\argv_input.hpp" />
+    <ClInclude Include="tao\pegtl\ascii.hpp" />
+    <ClInclude Include="tao\pegtl\buffer_input.hpp" />
+    <ClInclude Include="tao\pegtl\config.hpp" />
+    <ClInclude Include="tao\pegtl\cstream_input.hpp" />
+    <ClInclude Include="tao\pegtl\eol.hpp" />
+    <ClInclude Include="tao\pegtl\eol_pair.hpp" />
+    <ClInclude Include="tao\pegtl\file_input.hpp" />
+    <ClInclude Include="tao\pegtl\input_error.hpp" />
+    <ClInclude Include="tao\pegtl\istream_input.hpp" />
+    <ClInclude Include="tao\pegtl\memory_input.hpp" />
+    <ClInclude Include="tao\pegtl\mmap_input.hpp" />
+    <ClInclude Include="tao\pegtl\normal.hpp" />
+    <ClInclude Include="tao\pegtl\nothing.hpp" />
+    <ClInclude Include="tao\pegtl\parse.hpp" />
+    <ClInclude Include="tao\pegtl\parse_error.hpp" />
+    <ClInclude Include="tao\pegtl\position.hpp" />
+    <ClInclude Include="tao\pegtl\read_input.hpp" />
+    <ClInclude Include="tao\pegtl\rewind_mode.hpp" />
+    <ClInclude Include="tao\pegtl\rules.hpp" />
+    <ClInclude Include="tao\pegtl\string_input.hpp" />
+    <ClInclude Include="tao\pegtl\tracking_mode.hpp" />
+    <ClInclude Include="tao\pegtl\uint16.hpp" />
+    <ClInclude Include="tao\pegtl\uint32.hpp" />
+    <ClInclude Include="tao\pegtl\uint64.hpp" />
+    <ClInclude Include="tao\pegtl\uint8.hpp" />
+    <ClInclude Include="tao\pegtl\utf16.hpp" />
+    <ClInclude Include="tao\pegtl\utf32.hpp" />
+    <ClInclude Include="tao\pegtl\utf8.hpp" />
+    <ClInclude Include="tao\pegtl\version.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="example\pegtl\lua53_parse.cpp" />
+    <ClCompile Include="src\algorithms\A1\A1.cpp" />
+    <ClCompile Include="src\algorithms\A1\A1Circular32BitShift.cpp" />
+    <ClCompile Include="src\algorithms\A1\A1CombineKey.cpp" />
+    <ClCompile Include="src\algorithms\A1\A1SubBytes.cpp" />
+    <ClCompile Include="src\cipher\DynamicBlockCipher.cpp" />
+    <ClCompile Include="src\example\pegtl\lua53_parse.cpp" />
+    <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\util\HardwareRNG.cpp" />
+    <ClCompile Include="src\util\Utils.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
