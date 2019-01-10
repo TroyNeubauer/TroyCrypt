@@ -1,8 +1,4 @@
-#include "algorithms/A1/A1.h"
-#include "util/Utils.h"
-#include "TroyCrypt.h"
 
-#include "util/HardwareRNG.h"
 
 #include <iostream>
 #include <stdlib.h>
@@ -13,21 +9,40 @@
 #include <Windows.h>
 #include "boost/spirit.hpp"
 
-int main() {
-	std::cout << "Hello World" << std::endl;
-}
+#include "util/HardwareRNG.h"
+#include "TroyCrypt.h"
+#include "util/Utils.h"
+#include "algorithms/A1/A1.h"
+
+#include "parsing/parser.h"
+
+#include <complex>
 
 
 using namespace TroyCrypt;
-#if 0
+
 int main() {
 
-	HWND console = GetConsoleWindow();
-	RECT r;
-	GetWindowRect(console, &r); //stores the console's current dimensions
+	std::cout << "/////////////////////////////////////////////////////////\n\n";
+	std::cout << "\t\tA complex number micro parser for Spirit...\n\n";
+	std::cout << "/////////////////////////////////////////////////////////\n\n";
 
-	MoveWindow(console, r.left, r.top, 1000, 550, true);
+	std::cout << "Give me a complex number of the form r or (r) or (r,i) \n";
+	std::cout << "Type [q or Q] to quit\n\n";
 
+	std::string str;
+	while (getline(std::cin, str))
+	{
+		if (str.empty() || str[0] == 'q' || str[0] == 'Q')
+			break;
+
+		parse(str);
+		
+	}
+
+	std::cout << "Bye... :-) \n\n";
+
+#if 0
 	HardwareRNG rng;
 	const uint32_t bytes = A1_KEY_BYTES;
 	u8* key = new u8[bytes];
@@ -57,8 +72,5 @@ int main() {
 	std::cout << std::endl << "Plaintext equals decrypted: " << buffersEqual(plainText.get(), decrypted.get(), length) << std::endl;
 
 	system("PAUSE");
-
-}
-
-
 #endif
+}
