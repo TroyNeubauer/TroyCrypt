@@ -3,7 +3,7 @@
 #include <immintrin.h>
 #include <cstring>
 
-void HardwareRNG::getBytes(uint8_t* buffer, size_t bytes)
+void HardwareRNG::getBytes(void* buffer, size_t bytes)
 {
 	if (bytes == 0) return;
 	uint64_t bytesWritten = 0;
@@ -24,7 +24,7 @@ void HardwareRNG::getBytes(uint8_t* buffer, size_t bytes)
 	}
 	if (bytesWritten < bytes) {
 		while (!_rdrand64_step(&value));
-		memcpy(buffer + wordsToWrite * sizeof(uint64_t), &value, bytes - bytesWritten);
+		memcpy((uint8_t*) buffer + wordsToWrite * sizeof(uint64_t), &value, bytes - bytesWritten);
 	}
 
 }

@@ -142,28 +142,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\aes\aes.c" />
+    <ClCompile Include="src\aes\AES256.cpp" />
     <ClCompile Include="src\algorithms\A1\A1.cpp" />
-    <ClCompile Include="src\algorithms\A1\A1Circular32BitShift.cpp" />
+    <ClCompile Include="src\algorithms\A1\A1Circular64BitShift.cpp" />
     <ClCompile Include="src\algorithms\A1\A1CombineKey.cpp" />
+    <ClCompile Include="src\algorithms\A1\A1KeyCycle.cpp" />
     <ClCompile Include="src\algorithms\A1\A1SubBytes.cpp" />
-    <ClCompile Include="src\cipher\DynamicBlockCipher.cpp" />
+    <ClCompile Include="src\analysis\CryptAnalysis.cpp" />
+    <ClCompile Include="src\cipher\BlockCipher.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\parsing\CipherBuilder.cpp" />
     <ClCompile Include="src\parsing\parser.cpp" />
+    <ClCompile Include="src\stage\BlockCipherStage.cpp" />
+    <ClCompile Include="src\TroyContext.cpp" />
     <ClCompile Include="src\util\HardwareRNG.cpp" />
     <ClCompile Include="src\util\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\aes\aes.h" />
+    <ClInclude Include="src\aes\aes.hpp" />
+    <ClInclude Include="src\aes\AES256.h" />
     <ClInclude Include="src\algorithms\A1\A1.h" />
-    <ClInclude Include="src\algorithms\A1\A1Circular32BitShift.h" />
+    <ClInclude Include="src\algorithms\A1\A1Circular64BitShift.h" />
     <ClInclude Include="src\algorithms\A1\A1CombineKey.h" />
+    <ClInclude Include="src\algorithms\A1\A1KeyCycle.h" />
     <ClInclude Include="src\algorithms\A1\A1SubBytes.h" />
+    <ClInclude Include="src\analysis\CryptAnalysis.h" />
     <ClInclude Include="src\cipher\BlockCipher.h" />
-    <ClInclude Include="src\cipher\ConstantLengthBlockCipher.h" />
-    <ClInclude Include="src\cipher\DynamicBlockCipher.h" />
+    <ClInclude Include="src\cipher\StockBlockCipher.h" />
+    <ClInclude Include="src\cipher\CustomBlockCipher.h" />
     <ClInclude Include="src\cipher\TroyCipher.h" />
+    <ClInclude Include="src\key\BlockKeySchedule.h" />
+    <ClInclude Include="src\parsing\CipherBuilder.h" />
     <ClInclude Include="src\parsing\parser.h" />
     <ClInclude Include="src\stage\BlockCipherStage.h" />
-    <ClInclude Include="src\stage\BlockCipherSubBytes.h" />
     <ClInclude Include="src\stage\CipherStage.h" />
     <ClInclude Include="src\TroyContext.h" />
     <ClInclude Include="src\TroyCrypt.h" />

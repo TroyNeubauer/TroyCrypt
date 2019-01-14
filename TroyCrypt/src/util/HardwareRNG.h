@@ -11,5 +11,5 @@
 class HardwareRNG
 {
 public:
-	void getBytes(uint8_t* buffer, size_t bytes);
+	void getBytes(void* buffer, size_t bytes);
 };

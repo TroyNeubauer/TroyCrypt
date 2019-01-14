@@ -16,13 +16,19 @@
     <Filter Include="parsing">
       <UniqueIdentifier>{820742ac-38df-496d-a38d-654157931577}</UniqueIdentifier>
     </Filter>
+    <Filter Include="key">
+      <UniqueIdentifier>{f8a1aaa9-af48-41ef-9f99-96030e6f6203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="analysis">
+      <UniqueIdentifier>{cc30573c-1173-4971-a31d-4de23886f12c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="aes">
+      <UniqueIdentifier>{05020c12-6f0c-49ab-bba2-887c8eb56cb4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\algorithms\A1\A1.cpp">
-      <Filter>A1</Filter>
-    </ClCompile>
-    <ClCompile Include="src\algorithms\A1\A1Circular32BitShift.cpp">
       <Filter>A1</Filter>
     </ClCompile>
     <ClCompile Include="src\algorithms\A1\A1CombineKey.cpp">
@@ -30,9 +36,6 @@
     </ClCompile>
     <ClCompile Include="src\algorithms\A1\A1SubBytes.cpp">
       <Filter>A1</Filter>
-    </ClCompile>
-    <ClCompile Include="src\cipher\DynamicBlockCipher.cpp">
-      <Filter>cipher</Filter>
     </ClCompile>
     <ClCompile Include="src\util\HardwareRNG.cpp">
       <Filter>util</Filter>
@@ -43,14 +46,35 @@
     <ClCompile Include="src\parsing\parser.cpp">
       <Filter>parsing</Filter>
     </ClCompile>
+    <ClCompile Include="src\parsing\CipherBuilder.cpp">
+      <Filter>parsing</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cipher\BlockCipher.cpp">
+      <Filter>cipher</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TroyContext.cpp" />
+    <ClCompile Include="src\stage\BlockCipherStage.cpp">
+      <Filter>stage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\algorithms\A1\A1KeyCycle.cpp">
+      <Filter>A1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\algorithms\A1\A1Circular64BitShift.cpp">
+      <Filter>A1</Filter>
+    </ClCompile>
+    <ClCompile Include="src\analysis\CryptAnalysis.cpp">
+      <Filter>analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="src\aes\aes.c">
+      <Filter>aes</Filter>
+    </ClCompile>
+    <ClCompile Include="src\aes\AES256.cpp">
+      <Filter>aes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\TroyContext.h" />
     <ClInclude Include="src\TroyCrypt.h" />
     <ClInclude Include="src\algorithms\A1\A1.h">
-      <Filter>A1</Filter>
-    </ClInclude>
-    <ClInclude Include="src\algorithms\A1\A1Circular32BitShift.h">
       <Filter>A1</Filter>
     </ClInclude>
     <ClInclude Include="src\algorithms\A1\A1CombineKey.h">
@@ -60,12 +84,6 @@
       <Filter>A1</Filter>
     </ClInclude>
     <ClInclude Include="src\cipher\BlockCipher.h">
-      <Filter>cipher</Filter>
-    </ClInclude>
-    <ClInclude Include="src\cipher\ConstantLengthBlockCipher.h">
-      <Filter>cipher</Filter>
-    </ClInclude>
-    <ClInclude Include="src\cipher\DynamicBlockCipher.h">
       <Filter>cipher</Filter>
     </ClInclude>
     <ClInclude Include="src\cipher\TroyCipher.h">
@@ -80,14 +98,42 @@
     <ClInclude Include="src\stage\BlockCipherStage.h">
       <Filter>stage</Filter>
     </ClInclude>
-    <ClInclude Include="src\stage\BlockCipherSubBytes.h">
-      <Filter>stage</Filter>
-    </ClInclude>
     <ClInclude Include="src\stage\CipherStage.h">
       <Filter>stage</Filter>
     </ClInclude>
     <ClInclude Include="src\parsing\parser.h">
       <Filter>parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\parsing\CipherBuilder.h">
+      <Filter>parsing</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cipher\CustomBlockCipher.h">
+      <Filter>cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cipher\StockBlockCipher.h">
+      <Filter>cipher</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TroyContext.h" />
+    <ClInclude Include="src\key\BlockKeySchedule.h">
+      <Filter>key</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\A1\A1KeyCycle.h">
+      <Filter>A1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\algorithms\A1\A1Circular64BitShift.h">
+      <Filter>A1</Filter>
+    </ClInclude>
+    <ClInclude Include="src\analysis\CryptAnalysis.h">
+      <Filter>analysis</Filter>
+    </ClInclude>
+    <ClInclude Include="src\aes\aes.h">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\aes\aes.hpp">
+      <Filter>aes</Filter>
+    </ClInclude>
+    <ClInclude Include="src\aes\AES256.h">
+      <Filter>aes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
