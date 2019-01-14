@@ -1,14 +1,14 @@
 #pragma once
 
 
-#include "../../stage/BlockCipherSubBytes.h"
+#include "../../stage/BlockCipherStage.h"
 
 namespace TroyCrypt {
-	class A1SubBytes : public BlockCipherSubBytes {
+class A1SubBytes : public BlockCipherStage {
 
-	public:
-		void operate(u8* state, u32 stateSize);
-		void inverse(u8* state, u32 stateSize);
-	};
+public:
+	void operate_BlockCipher(BlockContext* context);
+	void inverse_BlockCipher(BlockContext* context);
+};
 
 }

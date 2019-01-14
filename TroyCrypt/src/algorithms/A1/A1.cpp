@@ -1,28 +1,34 @@
 #include "A1.h"
 
-#define ROUND_COUNT 10
+
+#define ROUND_COUNT 2
 
 namespace TroyCrypt {
-	void A1::encryptBlock(u8* plainText, u8* cipherText, u8* key)
+std::unique_ptr<BlockContext> A1::newContext() {
+	return std::unique_ptr<BlockContext>(new BlockContext(A1_STATE_BYTES, A1_KEY_BYTES, ROUND_COUNT));
+}
+
+void A1::encryptBlock(BlockContext* context)
+{
+	context->m_RoundIteration = 0;
+	for (int i = 0; i < ROUND_COUNT; i++, context->m_RoundIteration++)
 	{
-		std::memcpy(getState(), plainText, getStateSize());
-		for (int i = 0; i < ROUND_COUNT; i++)
-		{
-			bitRotate.operate(getState(), getStateSize());
-			subBytes.operate(getState(), getStateSize());
-			combineKey.operate(getState(), getStateSize(), key);
-		}
-		std::memcpy(cipherText, getState(), getStateSize());
+		keyCycle.nextKey(context);
+		bitRotate.operate_BlockCipher(context);
+		subBytes.operate_BlockCipher(context);
+		combineKey.operate_BlockCipher(context);
 	}
-	void A1::decryptBlock(u8* cipherText, u8* plainText, u8* key)
+}
+
+void A1::decryptBlock(BlockContext* context)
+{
+	context->m_RoundIteration = 0;
+	for (int i = 0; i < ROUND_COUNT; i++, context->m_RoundIteration++)
 	{
-		std::memcpy(getState(), cipherText, getStateSize());
-		for (int i = 0; i < ROUND_COUNT; i++)
-		{
-			combineKey.inverse(getState(), getStateSize(), key);
-			subBytes.inverse(getState(), getStateSize());
-			bitRotate.inverse(getState(), getStateSize());
-		}
-		std::memcpy(plainText, getState(), getStateSize());
+		keyCycle.nextKey(context);
+		combineKey.inverse_BlockCipher(context);
+		subBytes.inverse_BlockCipher(context);
+		bitRotate.inverse_BlockCipher(context);
 	}
+}
 }

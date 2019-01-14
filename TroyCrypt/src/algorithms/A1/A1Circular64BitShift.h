@@ -4,7 +4,7 @@
 
 namespace TroyCrypt {
 
-class A1CombineKey : BlockCipherStage
+class A1Circular64BitShift : BlockCipherStage
 {
 
 public:
@@ -12,4 +12,3 @@ public:
 	void inverse_BlockCipher(BlockContext* context);
 };
 }
-

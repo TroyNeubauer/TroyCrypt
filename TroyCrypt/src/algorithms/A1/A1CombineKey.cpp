@@ -1,19 +1,22 @@
 #include "A1CombineKey.h"
+#include "../../util/Utils.h"
+#include "../../util/Utils.h"
 
 namespace TroyCrypt {
 
-	void A1CombineKey::operate(u8* state, u32 stateSize, u8* key)
-	{
-		u32* state32 = (u32*) state;
-		u32* key32 = (u32*) key;
-		for (int i = 0; i < stateSize / sizeof(u32); i++)
-		{
-			state32[i] ^= key32[i];
-		}
-	}
+void A1CombineKey::operate_BlockCipher(BlockContext* context)
+{
+	u64* state64 = (u64*) context->m_State;
+	u64* key64 = (u64*) context->m_SubKey;
 
-	void A1CombineKey::inverse(u8* state, u32 stateSize, u8* key)
+	for (int i = 0; i < context->m_BlockBytes / sizeof(u64); i++)
 	{
-		operate(state, stateSize, key);
+		state64[i] ^= key64[i];
 	}
+}
+
+void A1CombineKey::inverse_BlockCipher(BlockContext* context)
+{
+	operate_BlockCipher(context);
+}
 }
