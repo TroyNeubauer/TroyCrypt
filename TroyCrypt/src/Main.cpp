@@ -14,14 +14,13 @@
 #include "util/Utils.h"
 #include "algorithms/A1/A1.h"
 
-#include "parsing/parser.h"
 #include "analysis/CryptAnalysis.h"
 
 
 using namespace TroyCrypt;
 
 int main() {
-#if 1
+#if 0
 	std::unique_ptr<BlockContext> context = A1::newContext();
 	u64 length = 1000;
 	HardwareRNG rng;
@@ -48,23 +47,28 @@ int main() {
 	std::unique_ptr<BlockContext> context = A1::newContext();
 
 	HardwareRNG rng;
-	const uint32_t bytes = A1_KEY_BYTES;
-	rng.getBytes((u8*) context->m_Key, bytes);
-	context->m_Key[0] = 0;
-	context->m_Key[5] = 0;
-	context->m_Key[12] = 0;
-	hex_dump(context->m_Key, bytes);
-	memcpy(context->m_SubKey, context->m_Key, context->m_KeyBytes);
 
 	A1 a1;
 	u64 length = padToStateSize(A1_STATE_BYTES, A1_KEY_BYTES * 10);//Plaintext and cipher text length
-	u8* data = new u8[length]();
+	u8* data = new u8[A1_KEY_BYTES]();
+
 	
 	std::unique_ptr<u8[]> cipherText(new u8[length]());
 	std::unique_ptr<u8[]> decrypted (new u8[length]());
 	std::unique_ptr<u8[]> plainText = padBufferToStateSize(data, length, A1_STATE_BYTES);
 
-	std::cout << "Origional" << std::endl;
+	rng.getBytes(context->m_Key, A1_KEY_BYTES);
+	std::cout << "Key:" << std::endl;
+	hex_dump(context->m_Key, A1_KEY_BYTES);
+	memcpy(context->m_SubKey, context->m_Key, context->m_KeyBytes);
+
+	DiffusionResult shannon = doDiffusionAnalysis(plainText.get(), cipherText.get(), length, context.get(), (TroyCipher*)& a1);
+	FrequencyResult frequency = doFrequencyAnalysis(plainText.get(), cipherText.get(), length, context.get(), (TroyCipher*)& a1, 1000);
+	std::cout << shannon << std::endl;
+	std::cout << frequency << std::endl;
+
+
+	/*std::cout << "Origional" << std::endl;
 	hex_dump(plainText.get(), length);
 
 	a1.encrypt_BlockCipher(plainText.get(), cipherText.get(), length, context.get());
@@ -75,8 +79,9 @@ int main() {
 	std::cout << "Decrypted" << std::endl;
 	hex_dump(decrypted.get(), length);
 
-	std::cout << std::endl << "Plaintext equals decrypted: " << buffersEqual(plainText.get(), decrypted.get(), length) << std::endl;
+	std::cout << std::endl << "Plaintext equals decrypted: " << buffersEqual(plainText.get(), decrypted.get(), length) << std::endl;*/
 
 	system("PAUSE");
 #endif
+	return 0;
 }

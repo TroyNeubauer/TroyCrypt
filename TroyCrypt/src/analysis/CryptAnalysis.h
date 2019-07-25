@@ -35,7 +35,7 @@ T difference(const T a, const T b) {
 
 struct FrequencyResult {
 	//0-100 representing the over precentage of how good it is 100 means good a distribution
-	float overallRating;
+	double overallRating;
 	u64 dataSize;
 
 	u8 mostFrequentValue;
@@ -48,11 +48,11 @@ struct FrequencyResult {
 };
 
 struct DiffusionResult {
-	float averagePercentFlip;
-	u64 totalSize, singleSize;
+	double averagePercentFlip, overallRating;
 	u64 totalFlip;
 
-	u32 lowestFlip, highestFlip;
+	double lowestFlip, highestFlip;
+	u64 keyBits;
 
 	friend std::ostream& operator<<(std::ostream & os, const DiffusionResult& result);
 };

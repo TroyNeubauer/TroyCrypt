@@ -43,9 +43,6 @@
     <ClCompile Include="src\util\Utils.cpp">
       <Filter>util</Filter>
     </ClCompile>
-    <ClCompile Include="src\parsing\parser.cpp">
-      <Filter>parsing</Filter>
-    </ClCompile>
     <ClCompile Include="src\parsing\CipherBuilder.cpp">
       <Filter>parsing</Filter>
     </ClCompile>
@@ -100,9 +97,6 @@
     </ClInclude>
     <ClInclude Include="src\stage\CipherStage.h">
       <Filter>stage</Filter>
-    </ClInclude>
-    <ClInclude Include="src\parsing\parser.h">
-      <Filter>parsing</Filter>
     </ClInclude>
     <ClInclude Include="src\parsing\CipherBuilder.h">
       <Filter>parsing</Filter>
